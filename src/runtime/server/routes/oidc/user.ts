@@ -8,7 +8,6 @@ export default defineEventHandler(async (event) => {
   const { config, op } = useRuntimeConfig().openidConnect
   console.log('[USER]: oidc/user calling')
 
-  const sessionid = getCookie(event, config.secret)
   const accesstoken = getCookie(event, config.cookiePrefix + 'access_token')
   const refreshToken = getCookie(event, config.cookiePrefix + 'refresh_token')
   const userinfoCookie = getCookie(event, config.cookiePrefix + 'user_info')

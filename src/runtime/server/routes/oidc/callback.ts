@@ -43,7 +43,7 @@ export default defineEventHandler(async (event) => {
     res.end()
   } else if (params.code) {
     // Authorization Code Flow: code -> access_token
-    console.log('[CALLBACK]: has code in params, code:' + params.code + ' ,sessionid=' + sessionid)
+    console.log('[CALLBACK]: has code in params, code:' + params.code + ', sessionid=' + sessionid)
     const tokenSet = await issueClient.callback(callbackUrl, params, { nonce: sessionid })
     if (tokenSet.access_token) {
       await processUserInfo(tokenSet.access_token, tokenSet, event)
